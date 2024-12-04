@@ -1,0 +1,59 @@
+{
+  "name": "nitro-kutu",
+  "type": "module",
+  "version": "0.2.1",
+  "packageManager": "pnpm@9.12.2",
+  "description": "POC module to enable access to the Cloudflare runtime bindings in development server of Nitro and Nuxt",
+  "license": "MIT",
+  "repository": "productdevbook/nitro-kutu",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
+    "./dist/runtime/*": {
+      "types": "./dist/runtime/*.d.ts",
+      "default": "./dist/runtime/*.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev:nitro": "pnpm run -C examples/nitro dev",
+    "dev:nuxt": "pnpm run -C examples/nuxt dev",
+    "lint": "eslint --cache .",
+    "lint:fix": "eslint --cache . --fix"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "date-fns": "^4.1.0",
+    "morgan": "^1.10.0",
+    "rotating-file-stream": "^3.2.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.11.2",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.10.1",
+    "eslint": "^9.16.0",
+    "eslint-config-unjs": "^0.4.2",
+    "h3": "^1.13.0",
+    "jiti": "^2.4.1",
+    "nitropack": "^2.10.4",
+    "nuxt": "^3.14.1592",
+    "typescript": "5.6.3",
+    "unbuild": "^2.0.0"
+  },
+  "pnpm": {
+    "resolutions": {
+      "typescript": "5.6.3"
+    }
+  },
+  "resolutions": {
+    "nitro-kutu": "workspace:*"
+  }
+}
