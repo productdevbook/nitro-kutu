@@ -2,10 +2,19 @@
   "name": "nitro-kutu",
   "type": "module",
   "version": "0.0.1",
+  "private": false,
   "packageManager": "pnpm@9.12.2",
-  "description": "POC module to enable access to the Cloudflare runtime bindings in development server of Nitro and Nuxt",
+  "description": "Nitro JS analytics",
   "license": "MIT",
   "repository": "productdevbook/nitro-kutu",
+  "bugs": {
+    "url": "https://github.com/oku-ui/primitives/issues"
+  },
+  "keywords": [
+    "nitro",
+    "analytics",
+    "dashboard"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -27,9 +36,14 @@
     "dev:nitro": "pnpm run -C examples/nitro dev",
     "dev:nuxt": "pnpm run -C examples/nuxt dev",
     "lint": "eslint --cache .",
-    "lint:fix": "eslint --cache . --fix"
+    "lint:fix": "eslint --cache . --fix",
+    "bumpp": "bumpp package.json",
+    "release": "pnpm build && pnpm publish --no-git-checks --access public",
+    "release:beta": "pnpm release --tag beta --access public",
+    "release:alpha": "pnpm release --tag alpha --access public"
   },
   "dependencies": {
+    "bumpp": "^9.8.1",
     "chalk": "^5.3.0",
     "date-fns": "^4.1.0",
     "morgan": "^1.10.0",
@@ -55,5 +69,8 @@
   },
   "resolutions": {
     "nitro-kutu": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

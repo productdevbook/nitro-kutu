@@ -11,9 +11,9 @@ export default <NitroAppPlugin> function (nitroApp) {
   const requestCounts = new Map<string, number>()
   const logBuffer: LogEntry[] = []
 
-  const accessLogStream = createStream('access.json', {
+  const accessLogStream = createStream('nitroKutu.json', {
     interval: '1d',
-    path: './logs',
+    path: './.data',
     compress: 'gzip',
   })
 
