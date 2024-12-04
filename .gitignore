@@ -44,3 +44,4 @@ components.d.ts
 .eslintcache
 .nx
 .vitest-cache
+.data
