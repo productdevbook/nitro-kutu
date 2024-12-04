@@ -63,7 +63,7 @@ export function createProgressBar(value: number, max: number, size: number = 12)
 
 export function formatResponseTime(time: string) {
   const ms = Number.parseFloat(time)
-  const progressBar = createProgressBar(ms, 1000)
+  // const progressBar = createProgressBar(ms, 1000)
   let timing = `${ms}ms`
 
   if (ms < timingCategories.fast.threshold)
@@ -73,7 +73,7 @@ export function formatResponseTime(time: string) {
   else
     timing = timingCategories.slow.color(timing)
 
-  return `${progressBar} ${timing}`
+  return `${timing}`
 }
 
 export function getDetailedMemoryUsage(): string {

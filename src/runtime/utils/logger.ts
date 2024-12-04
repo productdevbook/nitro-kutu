@@ -14,6 +14,10 @@ import {
 } from './formatters'
 
 export function shouldLogRequest(url: string): boolean {
+  // Allow analytics endpoints
+  if (url.startsWith('/api/_analytics/'))
+    return true
+
   return !EXCLUDED_PATHS.some(path => url.startsWith(path))
 }
 
@@ -22,6 +26,11 @@ export function createConsoleLogger(requestCounts: Map<string, number>, logBuffe
 
   return morgan((tokens, req, res) => {
     const reqUrl = tokens.url(req, res) || ''
+
+    // Analytics endpointi için loglama yapmayalım
+    if (reqUrl.startsWith('/api/_analytics/'))
+      return undefined
+
     if (!shouldLogRequest(reqUrl))
       return undefined
 
@@ -54,12 +63,10 @@ export function createConsoleLogger(requestCounts: Map<string, number>, logBuffe
       requestsPerMinute,
     }
 
-    // Add to buffer
-    if (shouldLogRequest(reqUrl)) {
-      logBuffer.unshift(logEntry)
-      if (logBuffer.length > 1000)
-        logBuffer.pop()
-    }
+    // Add to buffer - her isteği ekleyelim
+    logBuffer.unshift(logEntry)
+    if (logBuffer.length > 1000)
+      logBuffer.pop()
 
     // Format console output
     const parts = [

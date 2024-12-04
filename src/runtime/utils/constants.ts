@@ -1,8 +1,6 @@
 import chalk from 'chalk'
 
 export const EXCLUDED_PATHS = [
-  '/api/_analytics/logs',
-  '/api/_analytics/dashboard',
   '/favicon.ico',
   '/_nuxt',
   '/__nuxt',

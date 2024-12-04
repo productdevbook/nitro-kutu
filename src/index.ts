@@ -4,21 +4,13 @@ import { fileURLToPath } from 'node:url'
 
 declare module 'nitropack' {
   interface NitroOptions {
-    kutu?: {
-      /**
-       * @default By true, /_api/_analytics/dashboard
-       */
-      ui?: boolean
-    }
+    // kutu?: {
+    //   /**
+    //    * @default By true, /_api/_analytics/dashboard
+    //    */
+    //   ui?: boolean
+    // }
   }
-}
-
-interface Options {
-  /**
-   * @default By true, /_api/_analytics/dashboard
-   */
-  ui?: boolean
-
 }
 
 export function nitroModule(nitro: Nitro) {
