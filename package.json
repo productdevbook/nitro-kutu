@@ -1,7 +1,7 @@
 {
   "name": "nitro-kutu",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "private": false,
   "packageManager": "pnpm@9.12.2",
   "description": "Nitro JS analytics",
