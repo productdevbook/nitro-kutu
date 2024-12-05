@@ -1,12 +1,8 @@
-import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { useStorage } from 'nitropack/runtime'
 
-export function createDashboardHandler() {
-  const __dirname = fileURLToPath(new URL('.', import.meta.url))
-  const template = readFileSync(resolve(__dirname, '../templates/dashboard.html'), 'utf-8')
-
+export async function createDashboardHandler() {
+  const theme: string | null = await useStorage().getItem('kutu:templates:dashboard.html')
   return async () => {
-    return template
+    return theme
   }
 }
