@@ -6,10 +6,8 @@
     "prepare": "nitro prepare",
     "preview": "node .output/server/index.mjs"
   },
-  "dependencies": {
-    "nitro-kutu": "workspace:^"
-  },
   "devDependencies": {
+    "nitro-kutu": "latest",
     "nitropack": "latest"
   }
 }
