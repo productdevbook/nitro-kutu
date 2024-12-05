@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+export const html = `<!DOCTYPE html>
 <html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
@@ -217,8 +217,8 @@
               logs.value = data.recentLogs || []
               stats.value = [
                 { label: 'Total Requests', value: data.summary.totalRequests },
-                { label: 'Avg Response Time', value: `${Math.round(data.summary.averageResponseTime)}ms` },
-                { label: 'Error Rate', value: `${(data.summary.errorRate * 100).toFixed(1)}%` },
+                { label: 'Avg Response Time', value: \`\${Math.round(data.summary.averageResponseTime)}ms\` },
+                { label: 'Error Rate', value: \`\${(data.summary.errorRate * 100).toFixed(1)}%\` },
                 { label: 'Requests/min', value: data.summary.requestsPerMinute }
               ]
               lastUpdate.value = new Date().toLocaleTimeString()
@@ -305,3 +305,4 @@
     </script>
 </body>
 </html>
+`
