@@ -40,7 +40,8 @@
     "bumpp": "bumpp package.json",
     "release": "pnpm build && pnpm publish --no-git-checks --access public",
     "release:beta": "pnpm release --tag beta --access public",
-    "release:alpha": "pnpm release --tag alpha --access public"
+    "release:alpha": "pnpm release --tag alpha --access public",
+    "test:types": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "bumpp": "^9.8.1",
@@ -59,6 +60,7 @@
     "jiti": "^2.4.1",
     "nitropack": "^2.10.4",
     "nuxt": "^3.14.1592",
+    "pathe": "^1.1.2",
     "typescript": "5.6.3",
     "unbuild": "^2.0.0"
   },

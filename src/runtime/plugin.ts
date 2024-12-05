@@ -32,5 +32,5 @@ export default <NitroAppPlugin> function (nitroApp) {
 
   // Add filtered logs to route handlers
   nitroApp.router.add('/api/_analytics/logs', eventHandler(createAnalyticsHandler(logBuffer, requestCounts)))
-  nitroApp.router.add('/api/_analytics/dashboard', eventHandler(createDashboardHandler()))
+  nitroApp.router.add('/api/_analytics/dashboard', eventHandler(createDashboardHandler))
 }

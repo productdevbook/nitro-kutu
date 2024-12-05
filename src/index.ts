@@ -2,22 +2,23 @@ import type { Nitro } from 'nitropack'
 import type { Nuxt } from 'nuxt/schema'
 import { fileURLToPath } from 'node:url'
 
-declare module 'nitropack' {
-  interface NitroOptions {
-    // kutu?: {
-    //   /**
-    //    * @default By true, /_api/_analytics/dashboard
-    //    */
-    //   ui?: boolean
-    // }
-  }
-}
-
 export function nitroModule(nitro: Nitro) {
-  // Add plugin to inject bindings to dev server
+  const templateDir = fileURLToPath(new URL('./runtime/templates', import.meta.url))
+  // Configure storage for themes
+  nitro.options.storage = nitro.options.storage || {}
+  nitro.options.storage['kutu:templates'] = {
+    driver: 'fs',
+    base: templateDir,
+  }
+
+  // Add templates directory to bundled storage for production
+  nitro.options.bundledStorage = nitro.options.bundledStorage || []
+  nitro.options.bundledStorage.push('kutu/templates')
+
+  // Add plugin
   nitro.options.plugins = nitro.options.plugins || []
   nitro.options.plugins.push(
-    fileURLToPath(new URL('runtime/plugin', import.meta.url)),
+    fileURLToPath(new URL('./runtime/plugin', import.meta.url)),
   )
 }
 
